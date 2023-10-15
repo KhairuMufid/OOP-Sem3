@@ -15,10 +15,8 @@ class Pembeli:
                 print(f"\nBerikut list model dan harga tipe mobil {tipe_mobil_dicari}")
                 for index, mobil in enumerate(semua_mobil[tipe_mobil_dicari], start=1):
                     harga_tambahan = f""
-                    if mobil.premium_color:
-                        harga_tambahan = f" + premium color {mobil.premium_color} (opsional)"
-                    elif mobil.two_tone_color:
-                        harga_tambahan = f" + two-tone color {mobil.two_tone_color} (opsional)"
+                    harga_tambahan += f" + premium color {mobil.premium_color} (opsional) " if mobil.premium_color else ""
+                    harga_tambahan += f" + two-tone color {mobil.two_tone_color} (opsional) " if mobil.two_tone_color else ""
                     print(f"{index}. Kategori: {mobil.kategori}, Model: {mobil.model}, Harga: {mobil.harga}{harga_tambahan}")
         elif tipe_mobil_dicari:
             print(f"Mohon maaf, mobil {tipe_mobil_dicari} tidak tersedia.")
